@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -19,7 +17,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>標籤：jsDelivr - Aurora随记</title>
+  <title>Mybatis - Aurora随记</title>
+  
+    <meta name="keywords" content="Mybatis,SQL">
   
 
   
@@ -263,7 +263,7 @@
   
     
     
-        <div class='cover-wrapper  dock' style="display: none;">
+        <div class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -308,8 +308,8 @@
  
  
 <div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">false</div> 
-  <div id="pjax-pageTitle"></div> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">Mybatis</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path"></div> 
   <div id="pjax-comment-placeholder"></div> 
@@ -338,91 +338,279 @@
         
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        Mybatis
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200711202438.jpg">
+    <p>Aurora</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/9eb07c63/">
-        jsDelivr-Github+PicGo打造免费高效的图床
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        前言
-jsDelivr：免费的开源CDN，白嫖党的福音
-Github:最大的同性交友网站
-PicGo:一个用于快速上传图片并获取图片URL链接的工具
-
-创建Github图床
-首先需要注册一个Github账号
-
-新建一个仓库
-
-
-
-生成Token
-
-
-
-
-
-Node随意，勾选repo，最后Generate token，然后会生成一个token，这个token后面需要用到，且只会出现一次，保存好...
-      
-    
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Mybatis/">Mybatis</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-05-07</time>
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字數：415字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>時長：1分鐘</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 27, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Mybatis" data-path="/posts/undefined/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <blockquote>
+<p>Mybatis的mapper.xml中有两种方式可以对方法形参取值，#{}和${}，这两个的区别用和应用场景有些区别。</p>
+<p>本文简述区别</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title="#{ }"></a>#{ }</h2><p>#{ }解析<code>SQL</code>脚本时，会使用<code>PreparedStatement</code>执行<code>SQL</code>语句，会将#{}作为占位符?，然后将形参取出赋值，可以有效防止<code>SQL</code>注入</p>
+<p><strong>ps：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.example.pojo.Dept&quot;</span>&gt;</span></span><br><span class="line">    select *</span><br><span class="line">    from dept</span><br><span class="line">    where dept_id = #&#123;id&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927132950.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927132950.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927132936679"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最后?占位符会加上引号</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dept <span class="keyword">where</span> dept_id = <span class="string">&#x27;1&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="-1"><a href="#-1" class="headerlink" title="${ }"></a>${ }</h2><p>${ }解析SQL脚本时，会直接将形参变量取出，然后拼接在SQL语句中,这里用的也是<code>PreparedStatement</code></p>
+<p><strong>ps：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.example.pojo.Dept&quot;</span>&gt;</span></span><br><span class="line">    select *</span><br><span class="line">    from dept</span><br><span class="line">    where dept_id = $&#123;id&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927134310.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927134310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927134308662"></p>
+<p>这时候就会存在一个问题，<code>SQL注入</code>，传入参数为<code>&#39;&#39; or 1=1 </code>类似恒等式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927135400.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927135400.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927135356876"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dept <span class="keyword">where</span> dept_id = <span class="string">&#x27;&#x27;</span> <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span>;</span><br><span class="line"><span class="comment"># 此时会查询出所有数据，同时对数据库也会造成压力</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>在只有一个形参时{ }里面可以不用写对应的形参变量名，比如{xxx}，但是建议相同</strong></p>
+<blockquote>
+<p>#{}方式是先用?代替参数将SQL语句进行预编译，然后再将参数中的内容替换进来，非法参数内容只会是一个参数，不会在为SQL命令的一部分，可以有效防止SQL注入</p>
+</blockquote>
+<h2 id="只能使用-的场景"><a href="#只能使用-的场景" class="headerlink" title="只能使用${}的场景"></a>只能使用${}的场景</h2><p>由于#{}会给参数内容加上引号，有些时候需要字段、表名的情况下，SQL会出现问题。</p>
+<p><strong>ps:</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141746.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141746.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927141743719"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141810.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141810.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927141807589"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141939.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200927141939.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200927141933259"></p>
+<ul>
+<li>排序时字段有引号，排序失效</li>
+<li>表名有引号，直接报错</li>
+</ul>
+<p>所以这些情况下只能使用${}。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/posts/9eb07c63/'>
-            閱讀全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://blog.this52.cn/posts/undefined/>https://blog.this52.cn/posts/undefined/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-27T15:02:42+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 27, 2020</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Mybatis/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Mybatis</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SQL/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SQL</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.this52.cn/posts/undefined/&title=Mybatis - Aurora随记&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.this52.cn/posts/undefined/&title=Mybatis - Aurora随记&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.this52.cn/posts/undefined/&title=Mybatis - Aurora随记&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/posts/2ce3cbd6/'>
+          <p class='title'>Redis随记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>NoSql概述什么是NoSqlNoSql=Not Only SQL,不仅仅是SQL
+泛指非关系型数据库
+
+NOSQL特点
+
+
+方便扩展（数据之间没有好关系）
+大数据量高性能（Redis一秒写入8...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -430,137 +618,28 @@ Node随意，勾选repo，最后Generate token，然后会生成一个token，�
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200711202438.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Aurora随记</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:52assert@gmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/52assert"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Hexo/" href="/categories/Hexo/"
-            id="categoriesHexo"
-            ><div class='name'>Hexo</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java/" href="/categories/Java/"
-            id="categoriesJava"
-            ><div class='name'>Java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Mybatis/" href="/categories/Mybatis/"
-            id="categoriesMybatis"
-            ><div class='name'>Mybatis</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Nosql/" href="/categories/Nosql/"
-            id="categoriesNosql"
-            ><div class='name'>Nosql</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">#{ }</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-text">${ }</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AA%E8%83%BD%E4%BD%BF%E7%94%A8-%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-text">只能使用${}的场景</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 19px; color: #777">Hexo</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Mybatis/" style="font-size: 14px; color: #999">Mybatis</a> <a href="/tags/Nosql/" style="font-size: 14px; color: #999">Nosql</a> <a href="/tags/PicGo/" style="font-size: 14px; color: #999">PicGo</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SQL/" style="font-size: 14px; color: #999">SQL</a> <a href="/tags/Shiro/" style="font-size: 14px; color: #999">Shiro</a> <a href="/tags/URL/" style="font-size: 14px; color: #999">URL</a> <a href="/tags/jsDelivr/" style="font-size: 14px; color: #999">jsDelivr</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" style="font-size: 14px; color: #999">安全框架</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         

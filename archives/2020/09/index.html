@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>標籤：jsDelivr - Aurora随记</title>
+  <title>歸檔：2020/9 - Aurora随记</title>
   
 
   
@@ -318,14 +318,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
+  if ("half" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("none" == "half") { // 半屏 
+    if ("half" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
+    } else if ("half" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -338,11 +338,9 @@
         
         
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
@@ -362,33 +360,21 @@
   
     
     <h2 class="article-title" >
-      <a href="/posts/9eb07c63/">
-        jsDelivr-Github+PicGo打造免费高效的图床
+      <a href="/posts/undefined/">
+        Mybatis
       </a>
     </h2>
   
   <div class='md'>
     
       
-        前言
-jsDelivr：免费的开源CDN，白嫖党的福音
-Github:最大的同性交友网站
-PicGo:一个用于快速上传图片并获取图片URL链接的工具
+        
+Mybatis的mapper.xml中有两种方式可以对方法形参取值，#{}和${}，这两个的区别用和应用场景有些区别。
+本文简述区别
 
-创建Github图床
-首先需要注册一个Github账号
-
-新建一个仓库
-
-
-
-生成Token
-
-
-
-
-
-Node随意，勾选repo，最后Generate token，然后会生成一个token，这个token后面需要用到，且只会出现一次，保存好...
+#{ }#{ }解析SQL脚本时，会使用PreparedStatement执行SQL语句，会将#{}作为占位符?，然后将形参取出赋值，可以有效防止SQL注入
+ps：
+12345&lt;select id=&quot;one&quot; resultType...
       
     
   </div>
@@ -396,12 +382,15 @@ Node随意，勾选repo，最后Generate token，然后会生成一个token，�
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-05-07</time>
+        <time>2020-09-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Mybatis/">Mybatis</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/posts/9eb07c63/'>
+          <a class='readmore' href='/posts/undefined/'>
             閱讀全文
           </a>
         </div>
@@ -421,8 +410,7 @@ Node随意，勾选repo，最后Generate token，然后会生成一个token，�
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
