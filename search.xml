@@ -172,6 +172,25 @@
     
     
     <entry>
+      <title>Ngrok实现内网穿透</title>
+      <link href="posts/bf37a4ea/"/>
+      <url>posts/bf37a4ea/</url>
+      
+        <content type="html"><![CDATA[<p>什么是Ngrok？</p><p>ngrok 是一个反向代理，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道。我们可以使用它来实现内网穿透，让外网访问内网服务器不再是距离</p><p>什么是内网穿透？为什么需要内网穿透?</p><p>内网穿透即NAT穿透，通过端口映射将一台主机的内网(LAN)IP地址映射成一个公网(WAN)IP地址，让互联网上的用户可以通过此公网IP地址访问特定的内网主机所提供的网站或者服务器</p><hr><p>简单点来说，就是别人访问到我们本地部署的项目,在外网演示内网web站点</p><p>本次教程就以Hexo博客作为演示</p><ul><li><p>首先我们进入<a href="http://www.ngrok.cc/login">Ngrok</a>平台，没有账号的需要注册一个</p></li><li><p>点击隧道管理，开通隧道</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164158.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164158.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>选择服务器，我们这里使用免费的服务器</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164259.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164259.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>选择http协议，隧道名称自定义，前置域名自定义，本地端口选择对应的，我们这里演示的hexo的端口是4000，确认添加然后开通就ok了</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164428.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164428.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>下载合适的客户端</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164515.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628164515.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>启动hexo服务<img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165147.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165147.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>在Ngrok目录找到bat启动工具，启动，然后去Ngrok后台隧道管理里面复制隧道id</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165258.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165258.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li><li><p>部署完成，我们就可以通过外网访问我们本地的web服务了</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165441.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165441.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165512.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200628165512.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Ngrok </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为什么说重写equals方法就一定要重写hashCode方法?</title>
       <link href="posts/440fe77e/"/>
       <url>posts/440fe77e/</url>

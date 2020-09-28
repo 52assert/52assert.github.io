@@ -5,7 +5,9 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
+      
+        <meta name="robots" content="noindex,follow">
+      
     
   
   <!-- 渲染优化 -->
@@ -19,7 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: URL - Aurora随记</title>
+  <title>Aurora随记</title>
   
 
   
@@ -343,18 +345,9 @@
         
         
 
-
 <div class='l_main'>
   
-    
-      
   <section class="post-list">
-    
-      
-        
-          
-        
-      
     
     
       
@@ -367,8 +360,8 @@
   
     
     <h2 class="article-title" >
-      <a href="/posts/ec6298cf/">
-        Hexo之URL优化
+      <a href="/posts/da3e1361/">
+        Mybatis#{}和${}区别
       </a>
     </h2>
   
@@ -376,17 +369,12 @@
     
       
         
-Hexo的默认URL格式是日期加标题，permalink: :year/:month/:day/:title/，这种格式有很多缺点：
+Mybatis的mapper.xml中有两种方式可以对方法形参取值，#{}和${}，这两个的区别用和应用场景有些区别。
+本文简述区别
 
-缺点一：url过长
-缺点二：年月日都有分隔符，url层级过多
-缺点三：如果标题是中文，url会自动被编码，就会造成所谓的乱码现象，导致url过长
-
-不好看也不利于seo
-
-hexo-abbrlink插件
-进入Hexo博客根目录,安装插件
-1npm inst...
+#{ }#{ }解析SQL脚本时，会使用PreparedStatement执行SQL语句，会将#{}作为占位符?，然后将形参取出赋值，可以有效防止SQL注入
+ps：
+12345&lt;select id=&quot;one&quot; resultType...
       
     
   </div>
@@ -394,15 +382,15 @@ hexo-abbrlink插件
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-03-19</time>
+        <time>2020-03-10</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Hexo/">Hexo</a>
+          <a class="category-link" href="/categories/Mybatis/">Mybatis</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/posts/ec6298cf/'>
+          <a class='readmore' href='/posts/da3e1361/'>
             Read More
           </a>
         </div>
@@ -419,11 +407,24 @@ hexo-abbrlink插件
   </section>
   
     
-  
-
-
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          2 / 2
+        </p>
+        
+      </div>
     
   
+
+
 </div>
 <aside class='l_side'>
   
@@ -567,6 +568,7 @@ hexo-abbrlink插件
 
 
 </aside>
+
 
 
         
