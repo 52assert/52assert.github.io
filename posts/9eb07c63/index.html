@@ -323,14 +323,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("half" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("half" == "half") { // 半屏 
+    if ("none" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("half" == "full") { // 全屏 
+    } else if ("none" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -578,10 +578,10 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/posts/4dc5288/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JavaSPI机制</p>
-          <p class='content'>JavaSPI机制SPI是什么？全成Service provider interface，中文意思是服务提供发现。它是JDK内置的一种服务提供发现机制
-在微服务中也有服务发现，但是这两个并不是一...</p>
+        <a class='prev' href='/posts/4c01/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>SpringBoot随记</p>
+          <p class='content'>SpringBoot开始延迟初始化bean不会一开始就初始化，启动快，但是相应的bean配置错误不会在一开始显现出来
+123spring:  main:    lazy-initializati...</p>
         </a>
       
       

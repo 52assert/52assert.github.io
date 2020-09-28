@@ -145,6 +145,35 @@
     
     
     <entry>
+      <title>SpringBoot随记</title>
+      <link href="posts/4c01/"/>
+      <url>posts/4c01/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a><a href="https://spring.io/projects/spring-boot">SpringBoot</a></h2><h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="延迟初始化"><a href="#延迟初始化" class="headerlink" title="延迟初始化"></a>延迟初始化</h4><p>bean不会一开始就初始化，启动快，但是相应的bean配置错误不会在一开始显现出来</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">main:</span></span><br><span class="line">    <span class="attr">lazy-initialization:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><h3 id="元数据支持"><a href="#元数据支持" class="headerlink" title="元数据支持"></a>元数据支持</h3><p>引入<code>configuration-processor</code>依赖，在yaml中配置也会有相应提示</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904111759.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904111759.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904111759672"></p><p>会生成metadata.json</p><h3 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h3><h4 id="Javabean属性绑定和Constructor绑定"><a href="#Javabean属性绑定和Constructor绑定" class="headerlink" title="Javabean属性绑定和Constructor绑定"></a>Javabean属性绑定和Constructor绑定</h4><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904113618.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904113618.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904113617977"></p><p>yaml</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">acme:</span></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">remote-address:</span> <span class="number">192.168</span><span class="number">.45</span><span class="number">.113</span></span><br><span class="line">  <span class="attr">security:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">roles:</span> [<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>]</span><br></pre></td></tr></table></figure><h4 id="松散绑定"><a href="#松散绑定" class="headerlink" title="松散绑定"></a>松散绑定</h4><p>了解一下</p><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904114951.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904114951.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904114951397"></p><h4 id="JSR-303属性校验"><a href="#JSR-303属性校验" class="headerlink" title="JSR-303属性校验"></a>JSR-303属性校验</h4><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904121310.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904121310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904115124824"></p><p>如果存在内部类，在内部类加上@Valid注解才会生效</p><h4 id="ConfigurationProperties-vs-Value"><a href="#ConfigurationProperties-vs-Value" class="headerlink" title="@ConfigurationProperties vs. @Value"></a>@ConfigurationProperties vs. @Value</h4><table><thead><tr><th align="left">特征</th><th align="left"><code>@ConfigurationProperties</code></th><th align="left"><code>@Value</code></th></tr></thead><tbody><tr><td align="left">松散绑定</td><td align="left">Yes</td><td align="left">Limited (see note below)有限支持</td></tr><tr><td align="left">元数据支持</td><td align="left">Yes</td><td align="left">No</td></tr><tr><td align="left"><code>SpEL</code> 表达式</td><td align="left">No</td><td align="left">Yes</td></tr><tr><td align="left">复杂类型绑定</td><td align="left">Yes</td><td align="left">No</td></tr><tr><td align="left">JSR-303属性校验</td><td align="left">Yes</td><td align="left">No</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Spring </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jsDelivr-Github+PicGo打造免费高效的图床</title>
       <link href="posts/9eb07c63/"/>
       <url>posts/9eb07c63/</url>
