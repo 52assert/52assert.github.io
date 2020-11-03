@@ -17,9 +17,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>JavaSPI机制 - Aurora随记</title>
+  <title>SpringCloud随记 - Aurora随记</title>
   
-    <meta name="keywords" content="SPI,Java">
+    <meta name="keywords" content="Java,Spring,SpringCloud">
   
 
   
@@ -314,7 +314,7 @@
  
 <div id="pjax-data" style="display: none"> 
   <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">JavaSPI机制</div> 
+  <div id="pjax-pageTitle">SpringCloud随记</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path"></div> 
   <div id="pjax-comment-placeholder"></div> 
@@ -354,7 +354,7 @@
     
     
       <h1 class="title">
-        JavaSPI机制
+        SpringCloud随记
       </h1>
       <div class='new-meta-box'>
         
@@ -374,7 +374,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Java/">Java</a>
+      <a class="category-link" href="/categories/Spring/">Spring</a>
     </a>
   </div>
 
@@ -386,13 +386,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：841字</p>
+      <p>字数：2.4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
+      <p>时长：9分钟</p>
     </a>
   </div>
 
@@ -403,7 +403,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 13, 2020</p>
+    <p>发布于：Jun 3, 2020</p>
   </a>
 </div>
 
@@ -414,7 +414,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="JavaSPI机制" data-path="/posts/4dc5288/">
+      <div id="lc-pv" data-title="SpringCloud随记" data-path="/posts/f4bbff96/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -431,73 +431,301 @@
 
 
   
-  <h2 id="JavaSPI机制"><a href="#JavaSPI机制" class="headerlink" title="JavaSPI机制"></a>JavaSPI机制</h2><h3 id="SPI是什么？"><a href="#SPI是什么？" class="headerlink" title="SPI是什么？"></a>SPI是什么？</h3><p>全成<code>Service provider interface</code>，中文意思是服务提供发现。它是JDK内置的一种服务提供发现机制</p>
-<p>在微服务中也有<code>服务发现</code>，但是这两个并不是一个东西</p>
-<p>Java SPI 实际上是“<strong>基于接口的编程＋策略模式＋配置文件</strong>”组合实现的动态加载机制</p>
-<p>这就是典型的面向接口编程。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142845.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142845.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
-<h3 id="SPI实践（需要遵守SPI约定）"><a href="#SPI实践（需要遵守SPI约定）" class="headerlink" title="SPI实践（需要遵守SPI约定）"></a>SPI实践（需要遵守SPI约定）</h3><p>JDK中提供了一个工具类<code>java.util.ServiceLoader</code>，查找服务实现。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904220030.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904220030.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904220030863"></p>
-<p>可以看到他里面定义了一个常量<code>PREFIX=&quot;META-INF/services/&quot;</code>，它会根据这个前缀去查找jar包的META-INF/services/中的配置文件。配置文件中有接口的实现类全限定类名，可以根据类名进行加载实例化，就可以使用该服务了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142833.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142833.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904215932866"></p>
-<p>可以看到</p>
-<h4 id="Service模块"><a href="#Service模块" class="headerlink" title="Service模块"></a>Service模块</h4><ul>
-<li>定义接口</li>
+  <h1 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h1><h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><ul>
+<li>微服务架构是一个分布式系统,按照业务划分成为不同的服务单元,解决单体系统性能不足等问题</li>
+<li>微服务是一种架构风格,一个大型软件应用由多个服务单元组成,系统中的服务单元可以单独部署,各个服务单元之间是松耦合的</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904214538.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904214538.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904214537846"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.this52.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PayService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pay</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="AliPay实现模块"><a href="#AliPay实现模块" class="headerlink" title="AliPay实现模块"></a>AliPay实现模块</h4><ul>
-<li>定义实现类,引入Service jar，实现PayService接口</li>
+<h3 id="什么是SpringCloud"><a href="#什么是SpringCloud" class="headerlink" title="什么是SpringCloud"></a>什么是SpringCloud</h3><p><code>SpringCloud</code>是一种生态,是微服务系统架构的一站式解决方案,在我们构建微服务的过程中需要做如<strong>服务注册发现</strong>、<strong>配置中心</strong>、<strong>消息总线</strong>、<strong>负载均衡</strong>、<strong>断路器</strong>、<strong>数据监控</strong>等操作，SpringCloud为我们提供了一套方案，让我们在SpringBoot的基础上就能轻松的实现微服务项目的构建</p>
+<h3 id="SpringCloud和SpringBoot的关系"><a href="#SpringCloud和SpringBoot的关系" class="headerlink" title="SpringCloud和SpringBoot的关系"></a>SpringCloud和SpringBoot的关系</h3><ul>
+<li>SpringBoot可以离开SpringCloud独立使用,但是SpringCloud离不开SpringBoot,依赖于它</li>
+<li>SpringBoot专注于快速方便的开发单个个体微服务,SpringCloud关注全局的服务治理框架</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904214838.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904214838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904214837968"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.this52.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.this52.service.PayService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AliPay</span> <span class="keyword">implements</span> <span class="title">PayService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;支付宝支付！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.this52<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pay_service<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="微服务技术栈"><a href="#微服务技术栈" class="headerlink" title="微服务技术栈"></a>微服务技术栈</h3><h4 id="微服务开发"><a href="#微服务开发" class="headerlink" title="微服务开发"></a>微服务开发</h4><p><strong>作用: 快速开发服务</strong></p>
 <ul>
-<li>在resources目录下创建META-INF/services文件夹，创建一个以接口全限定类名命名的文件,文件内容为实现类全限定类名</li>
+<li>Spring</li>
+<li>SpringMvc</li>
+<li>SpringBoot</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142903.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142903.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904215438290"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cn.this52.service.impl.AliPay</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="微服务注册与发现"><a href="#微服务注册与发现" class="headerlink" title="微服务注册与发现"></a>微服务注册与发现</h4><p><strong>作用: 注册服务,发现服务,管理服务</strong></p>
+<p><strong>Eureka</strong></p>
+<ul>
+<li></li>
+<li></li>
+</ul>
+<p><strong>Zookeeper</strong></p>
+<ul>
+<li>ZooKeeper是用于维护配置信息，命名，提供分布式同步和提供组服务的集中式服务</li>
+</ul>
+<p><strong>Zookeeper 和 Eureka 区别</strong></p>
+<p>Zookeeper 保证 CP，Eureka 保证 AP：</p>
+<ul>
+<li>C：数据一致性；</li>
+<li>A：服务可用性；</li>
+<li>P：服务对网络分区故障的容错性，这三个特性在任何分布式系统中不能同时满足，最多同时满足两个。</li>
+</ul>
+<hr>
+<h4 id="微服务调用-协议"><a href="#微服务调用-协议" class="headerlink" title="微服务调用(协议)"></a>微服务调用(协议)</h4><blockquote>
+<p>通信协议</p>
+</blockquote>
+<p><strong>Rest</strong></p>
+<ul>
+<li>通过HTTP/HTTPS发送Rest请求进行数据交互</li>
+</ul>
+<p><strong>RPC</strong></p>
+<ul>
+<li>远程过程调用(Remote Procedure Call)</li>
+</ul>
+<hr>
+<h3 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h3><p>注解:</p>
+<p><code>@EnableDiscoveryClient</code>和<code>@EnableEurekaClient</code>共同点就是：都是能够让注册中心能够发现，扫描到改服务。</p>
+<p>不同点：<code>@EnableEurekaClient</code>只适用于<code>Eureka</code>作为注册中心，<code>@EnableDiscoveryClient</code> 可以是其他注册中心。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpringCloud E版本后无需注解</span><br></pre></td></tr></table></figure>
 
-<h4 id="测试模块"><a href="#测试模块" class="headerlink" title="测试模块"></a>测试模块</h4><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904215655.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904215655.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904215655369"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.this52.main;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.this52.service.PayService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ServiceLoader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PayTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ServiceLoader&lt;PayService&gt; payServices = ServiceLoader.load(PayService.class);</span><br><span class="line">        <span class="keyword">for</span> (PayService payService : payServices) &#123;</span><br><span class="line">            System.out.println(payService);</span><br><span class="line">            payService.pay();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904220433.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904220433.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904220433657"></p>
-<p>成功调用到服务!</p>
-<h3 id="SPI约定"><a href="#SPI约定" class="headerlink" title="SPI约定"></a>SPI约定</h3><ul>
-<li><p>当服务提供者提供了接口的一种具体实现后，在jar包的META-INF/services目录下创建一个以“接口全限定名”为命名的文件，内容为实现类的全限定名；</p>
-</li>
-<li><p>接口实现类所在的jar包放在主程序的classpath中；</p>
-</li>
-<li><p>主程序通过java.util.ServiceLoder动态装载实现模块，它通过扫描META-INF/services目录下的配置文件找到实现类的全限定名，把类加载到JVM；</p>
-</li>
-<li><p>SPI的实现类必须携带一个不带参数的构造方法；</p>
+
+<h4 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h4><p>以下配置都是以 <code>eureka.server</code> 开头：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>eureka.server.eviction-interval-timer-in-ms</td>
+<td>server清理无效节点的时间间隔</td>
+<td>默认60秒</td>
+</tr>
+<tr>
+<td>eureka.server.enable-self-preservation</td>
+<td>是否开启自我保护，默认true</td>
+<td>true false</td>
+</tr>
+<tr>
+<td>eureka.server.renewal-percent-threshold</td>
+<td>开启自我保护的系数</td>
+<td>默认：0.85</td>
+</tr>
+</tbody></table>
+<p>client参数配置：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>eureka.client.enabled</td>
+<td>是否开启client，默认true</td>
+<td>true false</td>
+</tr>
+<tr>
+<td>eureka.client.register-with-eureka</td>
+<td>是否注册</td>
+<td>默认true</td>
+</tr>
+<tr>
+<td>eureka.client.fetch-registry</td>
+<td>是否检索服务</td>
+<td>true false</td>
+</tr>
+<tr>
+<td>eureka.client.serviceUrl.defaultZone</td>
+<td>默认服务注册中心地址</td>
+<td>多个用”,”隔开</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-server-connect-timeout-seconds</td>
+<td>连接server服务器超时时间</td>
+<td>默认5秒</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-connection-idle-timeout-seconds</td>
+<td>连接server的连接空闲时长</td>
+<td>默认30秒</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-server-read-timeout-seconds</td>
+<td>连接server读取数据超时时间</td>
+<td>默认8秒</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-server-total-connections</td>
+<td>连接server的最大连接数</td>
+<td>默认200</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-server-total-connections-per-host</td>
+<td>对单个server的最大连接数</td>
+<td>默认50</td>
+</tr>
+<tr>
+<td>eureka.client.eureka-service-url-poll-interval-seconds</td>
+<td>获取集群中最新的server节点数据</td>
+<td>默认0</td>
+</tr>
+<tr>
+<td>eureka.client.heartbeat-executor-thread-pool-size</td>
+<td>client维持与server的心跳线程数</td>
+<td>默认2</td>
+</tr>
+<tr>
+<td>eureka.client.service-url</td>
+<td>列出所有可用注册中心的地址</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>eureka instance 相关配置：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>eureka.instance.lease-renewal-interval-in-seconds</td>
+<td>服务续约任务调用间隔时间，默认30秒</td>
+<td>client每隔30秒向server上报自己状态，避免被server剔除</td>
+</tr>
+<tr>
+<td>eureka.instance.lease-expiration-duration-in-seconds</td>
+<td>服务时效时间，默认90秒</td>
+<td>当server 90秒内没有收到client的注册信息时，会将该节点剔除</td>
+</tr>
+<tr>
+<td>eureka.client.registry-fetch-interval-seconds</td>
+<td>client本地缓存清单更新间隔，默认30秒</td>
+<td>client每隔30秒，向server请求可用服务清单。对于API网关类应用，可以适当降低时间间隔</td>
+</tr>
+<tr>
+<td>eureka.instance.prefer-ip-address</td>
+<td>注册服务时是否使用IP注册，默认false</td>
+<td>true false</td>
+</tr>
+<tr>
+<td>eureka.instance.ip-address</td>
+<td>server端的ip地址</td>
+<td></td>
+</tr>
+<tr>
+<td>eureka.instance.hostname</td>
+<td>server端的hostname</td>
+<td>默认localhost</td>
+</tr>
+<tr>
+<td>eureka.instance.instance-id</td>
+<td>注册到server的实例</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h3><h3 id="Feign"><a href="#Feign" class="headerlink" title="Feign"></a>Feign</h3><p>feign是声明式的web service客户端,它让微服务之间的调用变得更简单了,SpringCloud集成了Ribbon和Eureka,可在Feign时提供负载均衡的http客户端</p>
+<p><strong>调用微服务两种方法</strong></p>
+<ul>
+<li>微服务名字<code>ribbon</code></li>
+<li>接口和注解<code>feign</code></li>
+</ul>
+<p>依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>定义接口,使用@FeignClient注解开启,绑定服务名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200831221441.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200831221441.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200831221441674"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200831221451.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200831221451.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200831214909029"></p>
+<hr>
+<h3 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h3><p><a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix/wiki">Netflix/Hystrix</a></p>
+<p>在分布式环境中，不可避免地会有许多服务依赖项中的某些失败。</p>
+<p>Hystrix旨在执行以下操作：</p>
+<ul>
+<li>提供保护并控制延迟和失败，以及通过第三方客户端库（通常是通过网络）访问的依赖项的失败。</li>
+<li>停止复杂的分布式系统中的级联故障。</li>
+<li>快速失败，迅速恢复。</li>
+<li>回退并在可能的情况下正常降级。</li>
+<li>启用近乎实时的监视，警报和操作控制。</li>
+</ul>
+<h4 id="服务熔断"><a href="#服务熔断" class="headerlink" title="服务熔断"></a>服务熔断</h4><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901125948.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901125948.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200901124823236"></p>
+<h4 id="服务降级"><a href="#服务降级" class="headerlink" title="服务降级"></a>服务降级</h4><p>一般是某个服务故障或者是异常引起的，类似现实世界中的 <strong>保险丝</strong> ，当某个异常条件被触发，直接熔断整个服务，而不是一直等待，直到此服务超时。</p>
+<p>实现类实现<code>FallbackFactory</code>接口,返回一个接口的实现类,在服务接口中指定实现类</p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901130330.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901130330.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200901125112745"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901130103.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200901130103.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200901130103845"></p>
+<p>还需要在yaml配置中开启服务降级</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">hystrix:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="服务熔断和服务降级总结"><a href="#服务熔断和服务降级总结" class="headerlink" title="服务熔断和服务降级总结"></a>服务熔断和服务降级总结</h4><h5 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h5><ul>
+<li><strong>目的很一致</strong>，都是从可用性可靠性着想，为防止系统的整体缓慢甚至崩溃，采用的技术手段；</li>
+<li><strong>最终表现类似</strong>，对于两者来说，最终让用户体验到的是某些功能暂时不可达或不可用；</li>
+<li><strong>粒度一般都是服务级别</strong>，当然，业界也有不少更细粒度的做法，比如做到数据持久层（允许查询，不允许增删改）</li>
+<li><strong>自治性要求很高</strong>，熔断模式一般都是服务基于策略的自动触发，降级虽说可人工干预，但在微服务架构下，完全靠人显然不可能，开关预置、配置中心都是必要手段 ；</li>
+</ul>
+<h5 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h5><ul>
+<li><strong>触发原因不太一样：</strong><br>服务降级一般是从 整体负荷考虑；<br>服务熔断一般是 某个服务（下游服务）故障引起 ；</li>
+<li><strong>管理目标的层次不太一样：</strong><br>降级一般需要对业务有层级之分（核心业务，非核心业务）；<br>熔断 其实是一个框架级的处理，每个微服务都需要（无层级之分</li>
+</ul>
+<h3 id="Zuul"><a href="#Zuul" class="headerlink" title="Zuul"></a><a target="_blank" rel="noopener" href="https://github.com/Netflix/zuul/wiki">Zuul</a></h3><p>路由网关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200902175004.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200902175004.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200902174957528"></p>
+<p>在启动类上添加@EnableZuulProxy注解</p>
+<h4 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="SpringCloud-Config"><a href="#SpringCloud-Config" class="headerlink" title="SpringCloud Config"></a>SpringCloud Config</h3><p>Spring Cloud Config为分布式系统中的外部化配置提供服务器端和客户端支持。使用Config Server，您可以在中心位置管理所有环境中应用程序的外部属性。客户端和服务器上的概念都与Spring <code>Environment</code>和<code>PropertySource</code>抽象映射相同，因此它们非常适合Spring应用程序，但可以与以任何语言运行的任何应用程序一起使用。在应用程序从开发人员到测试人员再到生产人员的整个部署过程中，您可以管理这些环境之间的配置，并确保应用程序具有它们迁移时所需的一切。服务器存储后端的默认实现使用git，因此它轻松支持带标签的配置环境版本，并且可以通过各种工具来访问这些内容来管理内容。添加替代实现并将其插入Spring配置很容易</p>
+<p>HTTP服务具有以下形式的资源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#123;application&#125;&#x2F;&#123;profile&#125;[&#x2F;&#123;label&#125;]</span><br><span class="line">&#x2F;&#123;application&#125;-&#123;profile&#125;.yml</span><br><span class="line">&#x2F;&#123;label&#125;&#x2F;&#123;application&#125;-&#123;profile&#125;.yml</span><br><span class="line">&#x2F;&#123;application&#125;-&#123;profile&#125;.properties</span><br><span class="line">&#x2F;&#123;label&#125;&#x2F;&#123;application&#125;-&#123;profile&#125;.properties</span><br></pre></td></tr></table></figure>
+
+<p><code>application</code>在<code>SpringApplication</code>中作为<code>spring.config.name</code>注入（在常规Spring Boot应用中通常是<code>application</code>），<code>profile</code>是有效配置文件（或逗号分隔）属性列表），而<code>label</code>是可选的git标签（默认为<code>master</code>。）</p>
+<p>Server</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">springcloud-config-server</span></span><br><span class="line">  <span class="comment">#    从git获取配置</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="attr">server:</span></span><br><span class="line">        <span class="attr">git:</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">https://gitee.com/aurora5/springcloud-config.git</span></span><br></pre></td></tr></table></figure>
+
+<p>在启动类上使用注解@EnableConfigServer开启</p>
+<p>Client</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="常见错误以及解决方案"><a href="#常见错误以及解决方案" class="headerlink" title="常见错误以及解决方案"></a>常见错误以及解决方案</h3><ul>
+<li><code>java.lang.NoClassDefFoundError: org/springframework/boot/bind/RelaxedPropertyResolver</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200829182527.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200829182527.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>因为Druid中默认使用的SpringBoot版本是1.5.12,这个版本中引入了<code>RelaxedPropertyResolver</code></p>
+<ul>
+<li><p>在pom.xml中添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.8.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-<h3 id="SPI具体应用"><a href="#SPI具体应用" class="headerlink" title="SPI具体应用"></a>SPI具体应用</h3><h4 id="DriverManager"><a href="#DriverManager" class="headerlink" title="DriverManager"></a>DriverManager</h4><p>DriverManager是jdbc里管理和注册不同数据库driver的工具类。针对一个数据库，可能会存在着不同的数据库驱动实现。</p>
-<p>Java定义了java.sql.Driver接口，并没有具体实现，都是由不同厂商来提供的</p>
-<p>在JDBC4.0后连接数据库不需要再用<code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;)</code>来加载驱动了，就是使用了Java的SPI扩展机制来实现的</p>
-<p>在<code>mysql-connector-java 5.1.49</code>jar中，META-INF/services目录下会有一个名字为java.sql.Driver的文件：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142912.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142912.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904222822698"></p>
-<p>文件内容，跟我们刚刚实践的是一样的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">com.mysql.jdbc.Driver</span><br><span class="line">com.mysql.fabric.jdbc.FabricMySQLDriver</span><br></pre></td></tr></table></figure>
+<p>覆盖掉<code>druid-spring-boot-starter</code>中的<code>springboot</code>版本，解决</p>
+<hr>
+<ul>
+<li><p><code>Field deptMapper in cn.this52.springcloud.service.DeptServiceImpl required a bean of type &#39;cn.this52.springcloud.mapper.DeptMapper&#39; that could not be found.</code></p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200829183055.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200829183055.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200829183055573"></p>
+</li>
+</ul>
+<p>找不到Mapper接口</p>
+<ul>
+<li>解决方案:<ul>
+<li>在Mapper接口上添加@Mapper注解</li>
+<li>在启动类或者其他配置类上添加@MapperScan注解扫描Mapper对应的包</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>​                                                                                                                                                                                                                                                                                                                                                                                                                                     </p>
 
-
-
-
-
-<p>看下Mysql Driver实现</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142916.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142916.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200905091338632"></p>
-<p>可以看到它实现了<code>java.sql.Driver</code>接口，然后看下static静态块的DriverManage注册驱动</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142920.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200905142920.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904222309829"></p>
-<p>可以看到static静态块中有个<code>loadInitialDrivers()</code>方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904223607.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200904223607.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200904223607656"></p>
-<p>可以看到它使用的也是ServiceLoader类，遍历所有的jar下META-INF/services/中的以java.sql.Driver命名的文件里面的内容，并封装到一起，然后分割，通过Class.forName来加载类。就不需要我们来注册了。</p>
-<h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h4>
   
   
     
@@ -514,7 +742,7 @@
               
             
               
-                <p>本文永久链接是：<a href=https://blog.this52.cn/posts/4dc5288/>https://blog.this52.cn/posts/4dc5288/</a></p>
+                <p>本文永久链接是：<a href=https://blog.this52.cn/posts/f4bbff96/>https://blog.this52.cn/posts/f4bbff96/</a></p>
               
             
           </blockquote>
@@ -531,10 +759,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-13T00:00:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-03T00:00:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 13, 2020</p>
+    <p>更新于：Jun 3, 2020</p>
   </a>
 </div>
 
@@ -543,7 +771,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SPI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SPI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SpringCloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SpringCloud</p></a></div>
 
 
         
@@ -556,7 +784,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.this52.cn/posts/4dc5288/&title=JavaSPI机制 - Aurora随记&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.this52.cn/posts/f4bbff96/&title=SpringCloud随记 - Aurora随记&summary="
           
           >
           
@@ -568,7 +796,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.this52.cn/posts/4dc5288/&title=JavaSPI机制 - Aurora随记&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.this52.cn/posts/f4bbff96/&title=SpringCloud随记 - Aurora随记&summary="
           
           >
           
@@ -580,7 +808,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.this52.cn/posts/4dc5288/&title=JavaSPI机制 - Aurora随记&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.this52.cn/posts/f4bbff96/&title=SpringCloud随记 - Aurora随记&summary="
           
           >
           
@@ -610,17 +838,17 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/posts/cf5597ac/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Docker随记</p>
-          <p class='content'>DockerDocker是什么简单来来说就是将应用程序部署到独立容器，每个容器相当于一个小的linux系统，通过容器进行打包成镜像，放到有Docker环境上的系统上运行。虚拟机也是属于虚拟化技术...</p>
+        <a class='prev' href='/posts/4dc5288/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JavaSPI机制</p>
+          <p class='content'>JavaSPI机制SPI是什么？全成Service provider interface，中文意思是服务提供发现。它是JDK内置的一种服务提供发现机制
+在微服务中也有服务发现，但是这两个并不是一...</p>
         </a>
       
       
-        <a class='next' href='/posts/f4bbff96/'>
-          <p class='title'>SpringCloud随记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>SpringCloud什么是微服务
-微服务架构是一个分布式系统,按照业务划分成为不同的服务单元,解决单体系统性能不足等问题
-微服务是一种架构风格,一个大型软件应用由多个服务单元组成,系统中的服务...</p>
+        <a class='next' href='/posts/7a37d93e/'>
+          <p class='title'>SpringBoot随记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>SpringBoot开始延迟初始化bean不会一开始就初始化，启动快，但是相应的bean配置错误不会在一开始显现出来
+123spring:  main:    lazy-initializati...</p>
         </a>
       
     </div>
@@ -663,7 +891,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaSPI%E6%9C%BA%E5%88%B6"><span class="toc-text">JavaSPI机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">SPI是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E5%AE%9E%E8%B7%B5%EF%BC%88%E9%9C%80%E8%A6%81%E9%81%B5%E5%AE%88SPI%E7%BA%A6%E5%AE%9A%EF%BC%89"><span class="toc-text">SPI实践（需要遵守SPI约定）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Service%E6%A8%A1%E5%9D%97"><span class="toc-text">Service模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AliPay%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97"><span class="toc-text">AliPay实现模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97"><span class="toc-text">测试模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E7%BA%A6%E5%AE%9A"><span class="toc-text">SPI约定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E5%85%B7%E4%BD%93%E5%BA%94%E7%94%A8"><span class="toc-text">SPI具体应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DriverManager"><span class="toc-text">DriverManager</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring"><span class="toc-text">Spring</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-text">什么是微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFSpringCloud"><span class="toc-text">什么是SpringCloud</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringCloud%E5%92%8CSpringBoot%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">SpringCloud和SpringBoot的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-text">微服务技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91"><span class="toc-text">微服务开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-text">微服务注册与发现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8-%E5%8D%8F%E8%AE%AE"><span class="toc-text">微服务调用(协议)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eureka"><span class="toc-text">Eureka</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="toc-text">配置文件详解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ribbon"><span class="toc-text">Ribbon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feign"><span class="toc-text">Feign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hystrix"><span class="toc-text">Hystrix</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD"><span class="toc-text">服务熔断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7"><span class="toc-text">服务降级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E5%92%8C%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%E6%80%BB%E7%BB%93"><span class="toc-text">服务熔断和服务降级总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E5%90%8C%E7%82%B9"><span class="toc-text">相同点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-text">不同点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zuul"><span class="toc-text">Zuul</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pom"><span class="toc-text">pom</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringCloud-Config"><span class="toc-text">SpringCloud Config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">常见错误以及解决方案</span></a></li></ol>
     </div>
   </section>
 
