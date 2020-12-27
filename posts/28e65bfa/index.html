@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -21,7 +17,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Dream</title>
+  <title>12312 - Dream</title>
   
 
   
@@ -270,7 +266,7 @@
   
     
     
-        <div class='cover-wrapper  dock' style="display: none;">
+        <div class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg"></div>
           
@@ -315,8 +311,8 @@
  
  
 <div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">false</div> 
-  <div id="pjax-pageTitle"></div> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">12312</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path"></div> 
   <div id="pjax-comment-placeholder"></div> 
@@ -325,14 +321,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("half" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("half" == "half") { // 半屏 
+    if ("none" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("half" == "full") { // 全屏 
+    } else if ("none" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -346,289 +342,723 @@
         
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
+    
+      <h1 class="title">
+        12312
+      </h1>
+      <div class='new-meta-box'>
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/20c0704e/">
-        MongoDB随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        MongoDB简介MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。
-MongoDB安装1.配置yum源123456789vim /etc/yum.repos.d/mongodb-org-4.0.repo# 配置[mongodb-org-4.0]name=MongoDB...
-      
-    
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200928155246.jpg">
+    <p>Aurora</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>712 words</p>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>3 min</p>
+    </a>
+  </div>
+
+
+          
         
-        <time>2020-10-25</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 15, 2020</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/MongoDB/">MongoDB</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="12312" data-path="/posts/28e65bfa/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h3 id="请求头-所有请求必须携带请求头"><a href="#请求头-所有请求必须携带请求头" class="headerlink" title="请求头(所有请求必须携带请求头)"></a>请求头(所有请求必须携带请求头)</h3><table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Authorization</code></td>
+<td align="center">string</td>
+<td>认证,value需要在前面加上<code>Bearer +token</code>(例如Bearer c693ad2d-6893-4bd8-b56e-65aaccb7f94a)</td>
+</tr>
+<tr>
+<td align="center"><code>Content-Type</code></td>
+<td align="center">string</td>
+<td>application/json;charset=UTF-8</td>
+</tr>
+</tbody></table>
+<h3 id="采购单录入API"><a href="#采购单录入API" class="headerlink" title="采购单录入API"></a>采购单录入API</h3><blockquote>
+<p><code>POST</code>    </p>
+<p><a target="_blank" rel="noopener" href="http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/purchase_order_input">http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/purchase_order_input</a></p>
+</blockquote>
+<hr>
+<h4 id="1-请求参数"><a href="#1-请求参数" class="headerlink" title="1.请求参数"></a>1.请求参数</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>orderCode</code></td>
+<td>string</td>
+<td>采购订单号</td>
+</tr>
+<tr>
+<td><code>supplyName</code></td>
+<td>string</td>
+<td>供应商名称</td>
+</tr>
+<tr>
+<td><code>tel</code></td>
+<td>string</td>
+<td>联系人电话</td>
+</tr>
+<tr>
+<td><code>purDate</code></td>
+<td>string</td>
+<td>采购日期</td>
+</tr>
+<tr>
+<td><code>demandDate</code></td>
+<td>string</td>
+<td>需求日期</td>
+</tr>
+<tr>
+<td><code>shippingType</code></td>
+<td>string</td>
+<td>运输方式</td>
+</tr>
+<tr>
+<td><code>demandSide</code></td>
+<td>string</td>
+<td>需求方</td>
+</tr>
+<tr>
+<td><code>authorizationCode</code></td>
+<td>string</td>
+<td>授权码</td>
+</tr>
+<tr>
+<td><code>businessLicense</code></td>
+<td>string</td>
+<td>营业执照/信用代码</td>
+</tr>
+<tr>
+<td><code>senderBusinessLicense</code></td>
+<td>string</td>
+<td>发送方信用代码</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td>string</td>
+<td>币值</td>
+</tr>
+<tr>
+<td><code>taxRate</code></td>
+<td>int</td>
+<td>税率</td>
+</tr>
+<tr>
+<td><code>payType</code></td>
+<td>string</td>
+<td>付款方式</td>
+</tr>
+<tr>
+<td><code>payCondition</code></td>
+<td>string</td>
+<td>付款条件</td>
+</tr>
+<tr>
+<td><code>invoiceType</code></td>
+<td>string</td>
+<td>发票类型</td>
+</tr>
+<tr>
+<td><code>purchaseMats</code></td>
+<td>array</td>
+<td>物料明细</td>
+</tr>
+</tbody></table>
+<p><strong>purchaseMats</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>物料编码</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>规格型号</td>
+</tr>
+<tr>
+<td><code>qty</code></td>
+<td>int</td>
+<td>采购数量</td>
+</tr>
+<tr>
+<td><code>uom</code></td>
+<td>string</td>
+<td>物料单位</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>int</td>
+<td>单价</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>int</td>
+<td>采购金额</td>
+</tr>
+<tr>
+<td><code>receiveWh</code></td>
+<td>string</td>
+<td>收货仓</td>
+</tr>
+</tbody></table>
+<h4 id="2-响应参数"><a href="#2-响应参数" class="headerlink" title="2.响应参数"></a>2.响应参数</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>code</code></td>
+<td>int</td>
+<td>状态码，200成功，500失败</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>object</td>
+<td>响应数据</td>
+</tr>
+<tr>
+<td><code>msg</code></td>
+<td>object</td>
+<td>响应消息</td>
+</tr>
+</tbody></table>
+<h3 id="送货单录入API"><a href="#送货单录入API" class="headerlink" title="送货单录入API"></a>送货单录入API</h3><blockquote>
+<p><code>POST</code>    </p>
+<p>Remote    <a target="_blank" rel="noopener" href="http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/delivery_order_input">http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/delivery_order_input</a></p>
+</blockquote>
+<h4 id="1-请求参数-1"><a href="#1-请求参数-1" class="headerlink" title="1.请求参数"></a>1.请求参数</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>送货单号</td>
+</tr>
+<tr>
+<td><code>shipTo</code></td>
+<td>string</td>
+<td>收货方</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td>string</td>
+<td>客户id</td>
+</tr>
+<tr>
+<td><code>shipper</code></td>
+<td>string</td>
+<td>送货方</td>
+</tr>
+<tr>
+<td><code>orderDate</code></td>
+<td>string</td>
+<td>订单日期</td>
+</tr>
+<tr>
+<td><code>contacts</code></td>
+<td>string</td>
+<td>收货联系人</td>
+</tr>
+<tr>
+<td><code>deliveryDate</code></td>
+<td>string</td>
+<td>送货日期</td>
+</tr>
+<tr>
+<td><code>tel</code></td>
+<td>string</td>
+<td>联系方式</td>
+</tr>
+<tr>
+<td><code>route</code></td>
+<td>string</td>
+<td>路线</td>
+</tr>
+<tr>
+<td><code>totalWeight</code></td>
+<td>string</td>
+<td>总重量</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>string</td>
+<td>收货地址</td>
+</tr>
+<tr>
+<td><code>shippingType</code></td>
+<td>string</td>
+<td>运输方式</td>
+</tr>
+<tr>
+<td><code>shipperTel</code></td>
+<td>string</td>
+<td>送货联系人</td>
+</tr>
+<tr>
+<td><code>totalVol</code></td>
+<td>string</td>
+<td>总体积</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>string</td>
+<td>送货金额</td>
+</tr>
+<tr>
+<td><code>authorizationCode</code></td>
+<td>string</td>
+<td>授权码</td>
+</tr>
+<tr>
+<td><code>businessLicense</code></td>
+<td>array</td>
+<td>营业执照/信用代码</td>
+</tr>
+<tr>
+<td><code>senderBusinessLicense</code></td>
+<td>string</td>
+<td>发送方信用代码</td>
+</tr>
+<tr>
+<td><code>deliveryMats</code></td>
+<td>array</td>
+<td>送货信息</td>
+</tr>
+</tbody></table>
+<p><strong>deliveryMats</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>物料编码</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>规格型号</td>
+</tr>
+<tr>
+<td><code>qty</code></td>
+<td>int</td>
+<td>送货数量</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>int</td>
+<td>送货金额</td>
+</tr>
+<tr>
+<td><code>salesCode</code></td>
+<td>string</td>
+<td>销售单号</td>
+</tr>
+<tr>
+<td><code>purCode</code></td>
+<td>string</td>
+<td>采购单号</td>
+</tr>
+<tr>
+<td><code>vol</code></td>
+<td>int</td>
+<td>行体积</td>
+</tr>
+</tbody></table>
+<h4 id="2-响应参数-1"><a href="#2-响应参数-1" class="headerlink" title="2.响应参数"></a>2.响应参数</h4><table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>code</code></td>
+<td align="center">int</td>
+<td align="center">状态码，200成功，500失败</td>
+</tr>
+<tr>
+<td align="center"><code>content</code></td>
+<td align="center">object</td>
+<td align="center">响应数据</td>
+</tr>
+<tr>
+<td align="center"><code>msg</code></td>
+<td align="center">object</td>
+<td align="center">响应消息</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="排期录入API"><a href="#排期录入API" class="headerlink" title="排期录入API"></a>排期录入API</h3><blockquote>
+<p><code>POST</code>    </p>
+<p>Remote    <a target="_blank" rel="noopener" href="http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/schedule_input">http://cloud.dowaycn.com/Gateway/EblService/api/v1/input/schedule_input</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>mat_code</code></td>
+<td align="center">string</td>
+<td align="center">物料编码</td>
+</tr>
+<tr>
+<td align="center"><code>mat_name</code></td>
+<td align="center">string</td>
+<td align="center">物料名称</td>
+</tr>
+<tr>
+<td align="center"><code>delivery_date</code></td>
+<td align="center">string</td>
+<td align="center">交期</td>
+</tr>
+<tr>
+<td align="center"><code>qty</code></td>
+<td align="center">int</td>
+<td align="center">排期数量</td>
+</tr>
+<tr>
+<td align="center"><code>remark</code></td>
+<td align="center">string</td>
+<td align="center">备注</td>
+</tr>
+<tr>
+<td align="center"><code>ord_code</code></td>
+<td align="center">string</td>
+<td align="center">订单编号</td>
+</tr>
+<tr>
+<td align="center"><code>ord_dtl_id</code></td>
+<td align="center">string</td>
+<td align="center">订单明细id</td>
+</tr>
+<tr>
+<td align="center"><code>ord_id</code></td>
+<td align="center">string</td>
+<td align="center">订单id</td>
+</tr>
+<tr>
+<td align="center"><code>authorization_code</code></td>
+<td align="center">string</td>
+<td align="center">授权码</td>
+</tr>
+<tr>
+<td align="center"><code>customer_business_license</code></td>
+<td align="center">string</td>
+<td align="center">客户授权码</td>
+</tr>
+<tr>
+<td align="center"><code>supplier_business_license</code></td>
+<td align="center">string</td>
+<td align="center">供应商授权码</td>
+</tr>
+<tr>
+<td align="center"><code>code</code></td>
+<td align="center">string</td>
+<td align="center">编码</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="预测单录入API"><a href="#预测单录入API" class="headerlink" title="预测单录入API"></a>预测单录入API</h3><table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">customer_name</td>
+<td align="center">string</td>
+<td align="center">客户名称</td>
+</tr>
+<tr>
+<td align="center">forecast_time</td>
+<td align="center">string</td>
+<td align="center">预计时间</td>
+</tr>
+<tr>
+<td align="center">supplier_name</td>
+<td align="center">string</td>
+<td align="center">供应商明名称</td>
+</tr>
+<tr>
+<td align="center">customer_business_license</td>
+<td align="center">string</td>
+<td align="center">客户信用代码</td>
+</tr>
+<tr>
+<td align="center">supplier_business_license</td>
+<td align="center">string</td>
+<td align="center">供应商信用代码</td>
+</tr>
+<tr>
+<td align="center">authorization_code</td>
+<td align="center">string</td>
+<td align="center">授权码</td>
+</tr>
+<tr>
+<td align="center">code</td>
+<td align="center">string</td>
+<td align="center">编码</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">` http://cloud.dowaycn.com/IdentityServer/oauth/createToken/</span><br><span class="line"><span class="section"># RestFul风格 参数 api<span class="emphasis">_access_</span>token</span></span><br><span class="line"><span class="section"># 返回参数 为token (一天有效)</span></span><br><span class="line"></span><br><span class="line">生成的token</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`http://cloud.dowaycn.com/EblService/api/v1/input/purchaseOrderInput</span><br><span class="line">POST请求 需要在请求头携带token，key=Authorization，value=Bearer +token</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/posts/20c0704e/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://blog.this52.cn/posts/28e65bfa/>https://blog.this52.cn/posts/28e65bfa/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T00:00:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 15, 2020</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/89c0e8d2/">
-        VirtualBox使用随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        1.安装VirtualBox官网下载Download
-deepin &amp;&amp; ubuntu
-12345# 安装sudo apt install virtualbox# 卸载sudo apt remove pool/main/v/virtualbox/
+          
 
-2.下载Centos镜像阿里云镜像站https://mirrors.aliyun.com/centos/?spm=a2c6h.1...
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.this52.cn/posts/28e65bfa/&title=12312 - Dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.this52.cn/posts/28e65bfa/&title=12312 - Dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.this52.cn/posts/28e65bfa/&title=12312 - Dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Linux/">Linux</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/89c0e8d2/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/fc3e507b/">
-        RabbitMQ随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        1.MQ引言1.1什么是MQMQ全称为Message Queue, 消息队列（MQ）是一种应用程序对应用程序的通信方法。消息队列可以简单理解为：把要传输的数据放在队列中，mq 就是存放和发送消息的这么一个队列中间件。在消息队列中，把数据放到消息队列的角色叫做 生产者，从消息队列中消费获取数据的叫做 消费者。
-MQ和JMS类似，但不同的是JMS是SUN Java消息中间件服务的一个标准和API...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-13</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/MQ/">MQ</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/posts/fc3e507b/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/2ce3cbd6/">
-        Redis随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        NoSql概述什么是NoSqlNoSql=Not Only SQL,不仅仅是SQL
-泛指非关系型数据库
-
-NOSQL特点
-
-
-方便扩展（数据之间没有好关系）
-大数据量高性能（Redis一秒写入8万次，读取11万次）
-数据类型是多样型的
-
-NoSQL四大分类K-V键值对：
-
-Redis
-memacache
-
-文档型数据库：
-
-MongoDB
-
-列存储数据库：
-图关系数据库：
-Redis入门re...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Nosql/">Nosql</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/2ce3cbd6/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/6873a336/">
-        Shiro随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        ShiroApache Shiro是一个功能强大且灵活的开源安全框架,主要功能包括用户认证、授权、会话管理以及加密。
+        <a class='prev' href='/posts/6873a336/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Shiro随记</p>
+          <p class='content'>ShiroApache Shiro是一个功能强大且灵活的开源安全框架,主要功能包括用户认证、授权、会话管理以及加密。
 Shiro简单灵活
 
 
@@ -636,335 +1066,34 @@ Shiro简单灵活
 
 认证：验证用户是谁，能否登陆
 
-授权：验证用户是否有权限，可以访问那些资源
-
-会话管理：即使在非Web或EJB应用程序中，也可以管理用户特定的会话
-
-加密：对数据进行加密，保证安全
-
-
-其他功能支持：
-
-Web支持：Shiro的Web支持...
+授权：...</p>
+        </a>
       
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-07-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/posts/6873a336/'>
-            Read More
-          </a>
-        </div>
+        <a class='next' href='/posts/cf5597ac/'>
+          <p class='title'>Docker随记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>DockerDocker是什么简单来来说就是将应用程序部署到独立容器，每个容器相当于一个小的linux系统，通过容器进行打包成镜像，放到有Docker环境上的系统上运行。虚拟机也是属于虚拟化技术...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/28e65bfa/">
-        12312
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        请求头(所有请求必须携带请求头)
-
-
-参数名
-参数类型
-描述
+  </article>
 
 
 
-Authorization
-string
-认证,value需要在前面加上Bearer +token(例如Bearer c693ad2d-6893-4bd8-b56e-65aaccb7f94a)
 
-
-Content-Type
-string
-application/json;charset=UTF-8
-
-
-采购单录入API
-PO...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-07-15</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/28e65bfa/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/cf5597ac/">
-        Docker随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        DockerDocker是什么简单来来说就是将应用程序部署到独立容器，每个容器相当于一个小的linux系统，通过容器进行打包成镜像，放到有Docker环境上的系统上运行。虚拟机也是属于虚拟化技术，Docker容器也是一种虚拟化技术，它是基于Go语言开发的
-Docker优势
-更快交付/部署
-轻量级
-相互隔离，互不影响
-更便捷的升级和维护
-更高效的资源利用
-
-Docker组成
-Docker由镜像...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-07-01</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Linux/">Linux</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/cf5597ac/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/4dc5288/">
-        JavaSPI机制
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        JavaSPI机制SPI是什么？全成Service provider interface，中文意思是服务提供发现。它是JDK内置的一种服务提供发现机制
-在微服务中也有服务发现，但是这两个并不是一个东西
-Java SPI 实际上是“基于接口的编程＋策略模式＋配置文件”组合实现的动态加载机制
-这就是典型的面向接口编程。
-
-SPI实践（需要遵守SPI约定）JDK中提供了一个工具类java.util...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-13</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/4dc5288/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/f4bbff96/">
-        SpringCloud随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        SpringCloud什么是微服务
-微服务架构是一个分布式系统,按照业务划分成为不同的服务单元,解决单体系统性能不足等问题
-微服务是一种架构风格,一个大型软件应用由多个服务单元组成,系统中的服务单元可以单独部署,各个服务单元之间是松耦合的
-
-什么是SpringCloudSpringCloud是一种生态,是微服务系统架构的一站式解决方案,在我们构建微服务的过程中需要做如服务注册发现、配置中心、...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/f4bbff96/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/7a37d93e/">
-        SpringBoot随记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        SpringBoot开始延迟初始化bean不会一开始就初始化，启动快，但是相应的bean配置错误不会在一开始显现出来
-123spring:  main:    lazy-initialization: true
-
-
-
-元数据支持引入configuration-processor依赖，在yaml中配置也会有相应提示
-12345&lt;dependency&gt;    &lt;groupId&...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-05-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/7a37d93e/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -974,147 +1103,22 @@ SPI实践（需要遵守SPI约定）JDK中提供了一个工具类java.util...
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/52assert/CDN/img/20200928155246.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Dream</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:52assert@gmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/52assert"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Hexo/" href="/categories/Hexo/"
-            id="categoriesHexo"
-            ><div class='name'>Hexo</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java/" href="/categories/Java/"
-            id="categoriesJava"
-            ><div class='name'>Java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/MQ/" href="/categories/MQ/"
-            id="categoriesMQ"
-            ><div class='name'>MQ</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/MongoDB/" href="/categories/MongoDB/"
-            id="categoriesMongoDB"
-            ><div class='name'>MongoDB</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Mybatis/" href="/categories/Mybatis/"
-            id="categoriesMybatis"
-            ><div class='name'>Mybatis</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Nosql/" href="/categories/Nosql/"
-            id="categoriesNosql"
-            ><div class='name'>Nosql</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Spring/" href="/categories/Spring/"
-            id="categoriesSpring"
-            ><div class='name'>Spring</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4-%E6%89%80%E6%9C%89%E8%AF%B7%E6%B1%82%E5%BF%85%E9%A1%BB%E6%90%BA%E5%B8%A6%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="toc-text">请求头(所有请求必须携带请求头)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E8%B4%AD%E5%8D%95%E5%BD%95%E5%85%A5API"><span class="toc-text">采购单录入API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-text">1.请求参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0"><span class="toc-text">2.响应参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%81%E8%B4%A7%E5%8D%95%E5%BD%95%E5%85%A5API"><span class="toc-text">送货单录入API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0-1"><span class="toc-text">1.请求参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0-1"><span class="toc-text">2.响应参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E6%9C%9F%E5%BD%95%E5%85%A5API"><span class="toc-text">排期录入API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E5%8D%95%E5%BD%95%E5%85%A5API"><span class="toc-text">预测单录入API</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 19px; color: #777">Hexo</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Linux/" style="font-size: 19px; color: #777">Linux</a> <a href="/tags/MQ/" style="font-size: 14px; color: #999">MQ</a> <a href="/tags/MongoDB/" style="font-size: 14px; color: #999">MongoDB</a> <a href="/tags/Mybatis/" style="font-size: 14px; color: #999">Mybatis</a> <a href="/tags/Ngrok/" style="font-size: 14px; color: #999">Ngrok</a> <a href="/tags/Nosql/" style="font-size: 14px; color: #999">Nosql</a> <a href="/tags/PicGo/" style="font-size: 14px; color: #999">PicGo</a> <a href="/tags/RabiitMQ/" style="font-size: 14px; color: #999">RabiitMQ</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SQL/" style="font-size: 14px; color: #999">SQL</a> <a href="/tags/Shiro/" style="font-size: 14px; color: #999">Shiro</a> <a href="/tags/Spring/" style="font-size: 19px; color: #777">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14px; color: #999">SpringCloud</a> <a href="/tags/URL/" style="font-size: 14px; color: #999">URL</a> <a href="/tags/VirtualBox/" style="font-size: 14px; color: #999">VirtualBox</a> <a href="/tags/jsDelivr/" style="font-size: 14px; color: #999">jsDelivr</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" style="font-size: 14px; color: #999">安全框架</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a>
-    </div>
-  </section>
-
-
-  
 
   
 
